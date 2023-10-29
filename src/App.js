@@ -28,6 +28,7 @@ function App() {
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [reviewIsNull, setReviewIsNull] = useState(true)
 
   
 
@@ -137,7 +138,9 @@ function App() {
         setSuccessMessage,
         setErrorMessage,
         errorMessage,
-        successMessage
+        successMessage,
+        reviewIsNull,
+        setReviewIsNull
       }}
     >
       <BrowserRouter>

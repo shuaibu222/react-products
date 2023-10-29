@@ -4,7 +4,7 @@ import { IoTrashOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 const Reviews = ({ handleCommentSubmit, productId, name}) => {
-  const { setNewComment, newComment, isAuthenticated} = useContext(MyContext);
+  const { setNewComment, newComment, isAuthenticated, reviewIsNull, setReviewIsNull} = useContext(MyContext);
   const [eachComment, setEachComment] = useState([]);
   const [deletedComment, setDeletedComment] = useState("");
   const [user, setUser] = useState({})
@@ -92,12 +92,16 @@ const Reviews = ({ handleCommentSubmit, productId, name}) => {
   
         const data = await response.json();
 
-        // TODO manage null state in sha Allah
           setEachComment(data || []);
+          setReviewIsNull(false)
 
-          data.forEach((comment) => {
-            fetchUser(comment.userId);
-          });
+          if (data === null){
+            return
+          } else {
+            data.forEach((comment) => {
+              fetchUser(comment.userId);
+            });
+          }
 
       } catch (error) {
         console.error(error);
@@ -107,7 +111,7 @@ const Reviews = ({ handleCommentSubmit, productId, name}) => {
     if (isAuthenticated) {
       fetchReviews()
     }
-  }, [productId, newComment, deletedComment, isAuthenticated]);
+  }, [productId, newComment, deletedComment, isAuthenticated, setReviewIsNull]);
 
   
   return (
@@ -138,7 +142,7 @@ const Reviews = ({ handleCommentSubmit, productId, name}) => {
           </button>
         </section>
         <section className="comment-result">
-          {eachComment.map((eachComm) => {
+          {!reviewIsNull ? eachComment.map((eachComm) => {
             const { id, msg, date, userId } = eachComm;
 
             const u = user[userId] || {};
@@ -161,7 +165,7 @@ const Reviews = ({ handleCommentSubmit, productId, name}) => {
                 </section>
               </section>
             );
-          })}
+          }) : <h1>No comments yet on {name}</h1> }
         </section>
       </div>
       :  <Link

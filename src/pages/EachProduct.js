@@ -6,7 +6,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 
 const EachProduct = ({ users }) => {
   const [eachProduct, setEachProduct] = useState({});
-  const { newComment, setNewComment } = useContext(MyContext);
+  const { newComment, setNewComment, setReviewIsNull } = useContext(MyContext);
 
   function getRandomUserId(users) {
     // Generate a random index within the array length
@@ -51,8 +51,12 @@ const EachProduct = ({ users }) => {
       credentials: "include"
     });
         const data = await response.json();
-        setNewComment('');
-        return data
+        if (response.status === 200) {
+          setNewComment('');
+          setReviewIsNull(false)
+          console.log(data);
+        }
+       
       } catch (error) {
         console.error('Create failed: ', error.message);
       }

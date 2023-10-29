@@ -46,10 +46,7 @@ const Navigation = () => {
         </Link>
         <nav className="nav">
           <ul>
-            {!isAuthenticated &&
-            <Link className="nav-link" to="/">
-              Login
-            </Link>}
+            
             <Link className="nav-link" to="products">
               Products
             </Link>
@@ -57,9 +54,13 @@ const Navigation = () => {
             <Link className="nav-link" to="post">
               Post
             </Link>}
+            {!isAuthenticated &&
+            <Link className="nav-link" to="/">
+              Login
+            </Link>}
             {!isAuthenticated && 
             <Link className="nav-link" to="signup">
-              Sign Up
+              Signup
             </Link>}
           </ul>
         </nav>

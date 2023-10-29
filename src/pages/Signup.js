@@ -51,12 +51,12 @@ const Signup = () => {
       <section className="post-parent">
       <section className="post">
         <div className="add-style">
-          <h1>SignUp</h1>
+          <h1>Signup</h1>
         </div>
 
         <form className="form">
           <fieldset>
-            <label htmlFor="title">Userame: </label>
+            <label htmlFor="title">Username: </label>
             <input
               type="text"
               value={username}
@@ -77,7 +77,7 @@ const Signup = () => {
           </fieldset>
         </form>
         <button type="submit" className="submit-btn" onClick={handleSignup}>
-          Sign Up
+          Signup
         </button>
       </section>
       <section className="message">

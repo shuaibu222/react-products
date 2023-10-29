@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import { MyContext } from '../context/MyContext';
 
 const Navigation = () => {
   const { product, isAuthenticated,setIsAuthenticated } = useContext(MyContext);
+
+  let nav = useNavigate()
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ const Navigation = () => {
       localStorage.removeItem("token")
       setIsAuthenticated(false)
       console.log(data);
+      nav("/")
     }
   } catch (error) {
     console.error(error);

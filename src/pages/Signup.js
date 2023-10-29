@@ -3,6 +3,7 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { VscError } from "react-icons/vsc";
 
 
+
 const Signup = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -10,7 +11,7 @@ const Signup = () => {
   const [logError, setLogError] = useState(null)
 
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     
     const createUser = {
@@ -75,7 +76,7 @@ const Signup = () => {
             />
           </fieldset>
         </form>
-        <button type="submit" className="submit-btn" onClick={handleLogin}>
+        <button type="submit" className="submit-btn" onClick={handleSignup}>
           Sign Up
         </button>
       </section>

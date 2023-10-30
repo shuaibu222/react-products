@@ -7,6 +7,7 @@ import { VscError } from "react-icons/vsc";
 const Signup = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
   const [logSuccess, setLogSuccess] = useState(null)
   const [logError, setLogError] = useState(null)
 
@@ -36,7 +37,7 @@ const Signup = () => {
 
     if (response.status === 200) {
       console.log(data);
-      setLogSuccess('Signup successfully!');
+      setLogSuccess('Account created successfully!');
       setUsername("")
       setPassword("")
     }
@@ -61,6 +62,16 @@ const Signup = () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              name="text"
+              id="title"
+            />
+          </fieldset>
+          <fieldset>
+            <label htmlFor="title">Email: </label>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               name="text"
               id="title"
             />

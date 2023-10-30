@@ -96,7 +96,7 @@ const AddPage = ({
               onChange={(e) => setImageLink(e.target.value)}
               name="url"
               id="img-url"
-              placeholder='Copy Image link from google, firefox images tab'
+              placeholder='Copy image link from browser images tab...'
             />
           </fieldset>
         </form>

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { MyContext } from "../context/MyContext";
 import { VscError } from "react-icons/vsc";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 const Stats = () => {
@@ -13,7 +13,7 @@ const Stats = () => {
 
   let nav = useNavigate()
 
-  const {  setIsAuthenticated} = useContext(MyContext);
+  const {setIsAuthenticated} = useContext(MyContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -87,6 +87,7 @@ const Stats = () => {
         <button type="submit" className="submit-btn" onClick={handleLogin}>
           Login
         </button>
+        <p style={{fontSize: "0.8rem"}}>Don't have account yet, <Link to="signup" style={{color: 'blue'}}>signup here</Link></p>
       </section>
       <section className="message">
           {signSuccess && (

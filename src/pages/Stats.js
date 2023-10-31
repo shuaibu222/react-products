@@ -50,7 +50,6 @@ const Stats = () => {
   } catch (error) {
     console.error(error);
     setSignError("Login failed")
-    nav("/signup")
   }};
 
 

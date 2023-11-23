@@ -8,6 +8,7 @@ import { useNavigate, Link } from "react-router-dom";
 const Stats = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [isCorrect, setIsCorrect] = useState(false)
   const [signSuccess, setSignSuccess] = useState(null)
   const [signError, setSignError] = useState(null)
 
@@ -37,6 +38,7 @@ const Stats = () => {
     });
 
     const data = await response.json();
+    setIsCorrect(false)
     
 
     if (response.status === 200) {
@@ -50,12 +52,14 @@ const Stats = () => {
   } catch (error) {
     console.error(error);
     setSignError("Login failed")
+    setIsCorrect(true)
   }};
 
 
   return (
     <article className="hero">
       <section className="post-parent">
+      {isCorrect && <p style={{"color": "red", "marginBottom": "1.5rem"}}>username or password is incorrect!</p>}
       <section className="post">
         <div className="add-style">
           <h1>Login</h1>

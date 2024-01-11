@@ -68,7 +68,7 @@ const Navigation = () => {
           <FaShoppingCart />
           <p>{product.length}</p>
           {isAuthenticated &&
-          <button className="nav-link" onClick={handleLogout}>
+          <button className="nav-link logout" onClick={handleLogout}>
           Logout
         </button>}
         </div>

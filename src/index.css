@@ -105,6 +105,12 @@ header {
   padding: 0.5rem 0.7rem;
   border-radius: 3rem;
   transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.logout{
+  background: whitesmoke;
+  border: none;
 }
 
 .egg {
